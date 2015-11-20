@@ -1,0 +1,13 @@
+rdrenth_twig_extension:
+    stringy:
+        filters:
+            ascii: ~
+            camelize: ~
+            dasherize: ~
+            delimit: ~
+            humanize: ~
+            slugify: ~
+            titleize: ~
+            underscored: ~
+        extra_filters:
+            - { filter: swap_case, method: swapCase }

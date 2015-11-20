@@ -1,0 +1,5 @@
+rdrenth_twig_extension:
+    stringy:
+        filters:
+            ascii:
+                method: toAsciiMethodThatDoesNotExistAtAll
