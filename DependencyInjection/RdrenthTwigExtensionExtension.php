@@ -66,7 +66,6 @@ class RdrenthTwigExtensionExtension extends Extension
 
         $definition = $container->findDefinition('rdrenth_twig_extension.stringy');
         $definition->addTag('twig.extension')
-            ->addArgument($filters)
-            ->addArgument($config['encoding']);
+            ->addArgument($filters);
     }
 }

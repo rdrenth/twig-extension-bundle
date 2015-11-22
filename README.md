@@ -1,6 +1,8 @@
 RdrenthTwigExtensionBundle
 =============
 
+[![Build Status](https://travis-ci.org/rdrenth/twig-extension-bundle.svg?branch=master)](https://travis-ci.org/rdrenth/twig-extension-bundle) [![Latest Stable Version](https://poser.pugx.org/rdrenth/twig-extension-bundle/v/stable)](https://packagist.org/packages/rdrenth/twig-extension-bundle) [![Total Downloads](https://poser.pugx.org/rdrenth/twig-extension-bundle/downloads)](https://packagist.org/packages/rdrenth/twig-extension-bundle) [![Latest Unstable Version](https://poser.pugx.org/rdrenth/twig-extension-bundle/v/unstable)](https://packagist.org/packages/rdrenth/twig-extension-bundle) [![License](https://poser.pugx.org/rdrenth/twig-extension-bundle/license)](https://packagist.org/packages/rdrenth/twig-extension-bundle) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0545e7a1-6179-48df-8628-9e5b0afc13bb/mini.png)](https://insight.sensiolabs.com/projects/0545e7a1-6179-48df-8628-9e5b0afc13bb)
+
 ## About
 This is a Symfony2 Bundle that provides you with some extensions to Twig!
 

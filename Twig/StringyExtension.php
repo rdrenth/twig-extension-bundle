@@ -17,20 +17,13 @@ class StringyExtension extends \Twig_Extension
     private $filters;
 
     /**
-     * @type string|null
-     */
-    private $encoding;
-
-    /**
      * StringyExtension constructor.
      *
      * @param array $filters
-     * @param null|string $encoding
      */
-    public function __construct(array $filters = array(), $encoding = null)
+    public function __construct(array $filters = array())
     {
         $this->filters = $filters;
-        $this->encoding = $encoding;
     }
 
     /**
