@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.3
+* Update minimal PHP requirement to 5.3.3
+
 ## 1.0.2
 * Add support for Symfony 3.0
 
