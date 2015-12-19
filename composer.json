@@ -22,9 +22,9 @@
         "phpunit/phpunit": "^4.8"
     },
     "autoload": {
-        "psr-0": {
-            "Rdrenth\\Bundle\\TwigExtensionBundle": ""
-        }
-    },
-    "target-dir": "Rdrenth/Bundle/TwigExtensionBundle"
+        "psr-4": { "Rdrenth\\Bundle\\TwigExtensionBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
 }

@@ -2,6 +2,7 @@
 
 ## 1.0.3
 * Update minimal PHP requirement to 5.3.3
+* Update composer autoload settings
 
 ## 1.0.2
 * Add support for Symfony 3.0
