@@ -54,6 +54,7 @@ class Configuration implements ConfigurationInterface
                                 ->append($this->addStringyMethodNode('slugify'))
                                 ->append($this->addStringyMethodNode('titleize'))
                                 ->append($this->addStringyMethodNode('underscored'))
+                                ->append($this->addStringyMethodNode('lcfirst', 'lowerCaseFirst'))
                             ->end()
                         ->end()
                         ->arrayNode('extra_filters')

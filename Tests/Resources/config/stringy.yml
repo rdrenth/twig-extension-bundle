@@ -9,5 +9,6 @@ rdrenth_twig_extension:
             slugify: ~
             titleize: ~
             underscored: ~
+            lcfirst: ~
         extra_filters:
             - { filter: swap_case, method: swapCase }
