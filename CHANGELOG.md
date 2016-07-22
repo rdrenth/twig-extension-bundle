@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Update code style
+* Update composer requirements
 
 ## 1.0.3
 * Update minimal PHP requirement to 5.3.3
