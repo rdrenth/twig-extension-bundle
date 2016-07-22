@@ -4,11 +4,12 @@ namespace Rdrenth\Bundle\TwigExtensionBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * RdrenthTwigExtensionExtension
+ * Class RdrenthTwigExtensionExtension
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
@@ -18,6 +19,7 @@ class RdrenthTwigExtensionExtension extends Extension
 {
     /**
      * {@inheritdoc}
+     * @throws \Exception
      */
     public function load(array $config, ContainerBuilder $container)
     {
@@ -27,7 +29,7 @@ class RdrenthTwigExtensionExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
-        if (isset($config['stringy'])) {
+        if (array_key_exists('stringy', $config)) {
             $this->registerStringyConfiguration($config['stringy'], $container, $loader);
         }
     }
@@ -44,6 +46,7 @@ class RdrenthTwigExtensionExtension extends Extension
      * @param array $config
      * @param ContainerBuilder $container
      * @param XmlFileLoader $loader
+     * @throws InvalidArgumentException
      */
     private function registerStringyConfiguration(array $config, ContainerBuilder $container, XmlFileLoader $loader)
     {

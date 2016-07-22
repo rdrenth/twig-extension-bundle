@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
 {
     /**
      * {@inheritdoc}
+     * @throws \RuntimeException
      */
     public function getConfigTreeBuilder()
     {
@@ -31,6 +32,7 @@ class Configuration implements ConfigurationInterface
 
     /**
      * @param ArrayNodeDefinition $rootNode
+     * @throws \RuntimeException
      */
     private function addStringySection(ArrayNodeDefinition $rootNode)
     {
@@ -60,7 +62,7 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('filter')->end()
                                     ->scalarNode('method')
                                         ->validate()
-                                        ->ifTrue(function($value) { return !method_exists('Stringy\Stringy', $value); })
+                                        ->ifTrue(function ($value) { return !method_exists('Stringy\Stringy', $value); })
                                             ->thenInvalid('Method %s does not on the class Stringy\Stringy.')
                                         ->end()
                                     ->end()
@@ -76,6 +78,7 @@ class Configuration implements ConfigurationInterface
      * @param string $filterName
      * @param string|null $methodName
      * @return NodeDefinition
+     * @throws \RuntimeException
      */
     private function addStringyMethodNode($filterName, $methodName = null)
     {
@@ -90,7 +93,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('method')
                     ->defaultValue($methodName ?: $filterName)
                     ->validate()
-                    ->ifTrue(function($value) { return !method_exists('Stringy\Stringy', $value); })
+                    ->ifTrue(function ($value) { return !method_exists('Stringy\Stringy', $value); })
                         ->thenInvalid('Method %s does not on the class Stringy\Stringy.')
                     ->end()
                 ->end()

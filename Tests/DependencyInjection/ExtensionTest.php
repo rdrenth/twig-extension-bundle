@@ -7,13 +7,13 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * ExtenionTest
+ * Class ExtenionTest
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/rdrenth/twig-extension-bundle
  */
-class ExtenionTest extends \PHPUnit_Framework_TestCase
+final class ExtenionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test DI container with default config
@@ -23,9 +23,9 @@ class ExtenionTest extends \PHPUnit_Framework_TestCase
         $config = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/default.yml'));
         $container = $this->getContainer($config);
 
-        $this->assertTrue($container->hasDefinition('rdrenth_twig_extension.stringy'));
+        self::assertTrue($container->hasDefinition('rdrenth_twig_extension.stringy'));
 
-        $this->assertEquals(
+        self::assertEquals(
             $container->getParameterBag()->resolveValue('%rdrenth_twig_extension.stringy.class%'),
             $container->getDefinition('rdrenth_twig_extension.stringy')->getClass()
         );

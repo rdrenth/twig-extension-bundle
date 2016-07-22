@@ -7,13 +7,13 @@ use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * ConfigurationTest
+ * Class ConfigurationTest
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/rdrenth/twig-extension-bundle
  */
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+final class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @return array
@@ -40,7 +40,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $rawConfig = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/default.yml'));
         $config = $this->processConfiguration($rawConfig);
 
-        $this->assertArrayHasKey('stringy', $config);
+        self::assertArrayHasKey('stringy', $config);
     }
 
     /**
@@ -51,13 +51,13 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $rawConfig = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/stringy.yml'));
         $config = $this->processConfiguration($rawConfig);
 
-        $this->assertArrayHasKey('stringy', $config);
+        self::assertArrayHasKey('stringy', $config);
         $config = $config['stringy'];
 
-        $this->assertArrayHasKey('enabled', $config);
-        $this->assertArrayHasKey('encoding', $config);
-        $this->assertArrayHasKey('filters', $config);
-        $this->assertArrayHasKey('extra_filters', $config);
+        self::assertArrayHasKey('enabled', $config);
+        self::assertArrayHasKey('encoding', $config);
+        self::assertArrayHasKey('filters', $config);
+        self::assertArrayHasKey('extra_filters', $config);
 
         $filters = $config['filters'];
         foreach ($this->provideStringyFilters() as $filterName => $methodName) {
@@ -86,11 +86,11 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     private function assertStringyFilter(array $filters, $indexName, $filterName, $methodName, $enabled = null)
     {
         if ($enabled !== null) {
-            $this->assertEquals($enabled, $filters[$indexName]['enabled']);
+            self::assertEquals($enabled, $filters[$indexName]['enabled']);
         }
 
-        $this->assertEquals($filterName, $filters[$indexName]['filter']);
-        $this->assertEquals($methodName, $filters[$indexName]['method']);
+        self::assertEquals($filterName, $filters[$indexName]['filter']);
+        self::assertEquals($methodName, $filters[$indexName]['method']);
     }
 
     /**

@@ -3,16 +3,16 @@
 namespace Rdrenth\Bundle\TwigExtensionBundle\Twig;
 
 /**
- * StringyExtension
+ * Class StringyExtension
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/rdrenth/twig-extension-bundle
  */
-class StringyExtension extends \Twig_Extension
+final class StringyExtension extends \Twig_Extension
 {
     /**
-     * @type array
+     * @var array
      */
     private $filters;
 
@@ -39,7 +39,7 @@ class StringyExtension extends \Twig_Extension
      */
     public function getFilters()
     {
-        if (empty($this->filters)) {
+        if (count($this->filters) === 0) {
             return array();
         }
 

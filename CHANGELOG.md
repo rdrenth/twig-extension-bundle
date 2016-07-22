@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Update code style
+
 ## 1.0.3
 * Update minimal PHP requirement to 5.3.3
 * Update composer autoload settings
