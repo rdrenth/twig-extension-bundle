@@ -67,6 +67,12 @@ For more information about each filter, please check the links.
 {{ 'LowerCaseFirst'|lcfirst }} {# lowerCaseFirst #}
 ```
 
+#### [ucfirst](https://github.com/danielstjules/Stringy#uppercasefirst)
+
+```twig
+{{ 'upperCaseFirst'|ucfirst }} {# UpperCaseFirst #}
+```
+
 
 ## Installation
 ### Step 1: Install RdrenthTwigExtensionBundle using [Composer](http://getcomposer.org)

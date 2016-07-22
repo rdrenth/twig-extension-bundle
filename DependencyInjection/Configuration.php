@@ -55,6 +55,7 @@ class Configuration implements ConfigurationInterface
                                 ->append($this->addStringyMethodNode('titleize'))
                                 ->append($this->addStringyMethodNode('underscored'))
                                 ->append($this->addStringyMethodNode('lcfirst', 'lowerCaseFirst'))
+                                ->append($this->addStringyMethodNode('ucfirst', 'upperCaseFirst'))
                             ->end()
                         ->end()
                         ->arrayNode('extra_filters')

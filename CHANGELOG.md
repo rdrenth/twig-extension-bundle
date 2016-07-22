@@ -5,6 +5,7 @@
 * Update composer requirements
 * Fix broken link in README
 * Add filter `lcfirst`
+* Add filter `ucfirst`
 
 ## 1.0.3
 * Update minimal PHP requirement to 5.3.3

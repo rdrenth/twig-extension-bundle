@@ -34,6 +34,7 @@ final class StringyExtensionTest extends \PHPUnit_Framework_TestCase
         'titleize' => "{{ value|titleize(['to', 'at']) }}",
         'underscored' => '{{ value|underscored }}',
         'lcfirst' => '{{ value|lcfirst }}',
+        'ucfirst' => '{{ value|ucfirst }}',
         'swap_case' => '{{ value|swap_case }}',
     );
 
@@ -121,6 +122,14 @@ final class StringyExtensionTest extends \PHPUnit_Framework_TestCase
         self::assertSame(
             $this->twig->render('lcfirst', array('value' => 'LowerCaseFirst')),
             'lowerCaseFirst'
+        );
+    }
+
+    public function testUcfirstFilter()
+    {
+        self::assertSame(
+            $this->twig->render('ucfirst', array('value' => 'upperCaseFirst')),
+            'UpperCaseFirst'
         );
     }
 
