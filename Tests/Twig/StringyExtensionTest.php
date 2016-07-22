@@ -8,32 +8,34 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * StringyExtensionTest
+ * Class StringyExtensionTest
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/rdrenth/twig-extension-bundle
  */
-class StringyExtensionTest extends \PHPUnit_Framework_TestCase
+final class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @type \Twig_Environment
+     * @var \Twig_Environment
      */
     private $twig;
 
     /**
-     * @type array
+     * @var array
      */
-    private $twigTemplates = array(
-        'ascii' => "{{ value|ascii(true) }}",
-        'camelize' => "{{ value|camelize }}",
-        'dasherize' => "{{ value|dasherize }}",
+    private static $twigTemplates = array(
+        'ascii' => '{{ value|ascii(true) }}',
+        'camelize' => '{{ value|camelize }}',
+        'dasherize' => '{{ value|dasherize }}',
         'delimit' => "{{ value|delimit('::') }}",
-        'humanize' => "{{ value|humanize }}",
+        'humanize' => '{{ value|humanize }}',
         'slugify' => "{{ value|slugify('-') }}",
         'titleize' => "{{ value|titleize(['to', 'at']) }}",
-        'underscored' => "{{ value|underscored }}",
-        'swap_case' => "{{ value|swap_case }}",
+        'underscored' => '{{ value|underscored }}',
+        'lcfirst' => '{{ value|lcfirst }}',
+        'ucfirst' => '{{ value|ucfirst }}',
+        'swap_case' => '{{ value|swap_case }}',
     );
 
     /**
@@ -44,16 +46,16 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
         $rawConfig = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/stringy.yml'));
         $container = $this->getContainer($rawConfig);
 
-        /** @type StringyExtension $twigExtension */
+        /** @var StringyExtension $twigExtension */
         $twigExtension = $container->get('rdrenth_twig_extension.stringy');
 
-        $this->twig = new \Twig_Environment(new \Twig_Loader_Array($this->twigTemplates));
+        $this->twig = new \Twig_Environment(new \Twig_Loader_Array(self::$twigTemplates));
         $this->twig->addExtension($twigExtension);
     }
 
     public function testAsciiFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('ascii', array('value' => 'fòôbàř')),
             'foobar'
         );
@@ -61,7 +63,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testCamelizeFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('camelize', array('value' => 'Camel-Case')),
             'camelCase'
         );
@@ -69,7 +71,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testDasherizeFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('dasherize', array('value' => 'fooBar')),
             'foo-bar'
         );
@@ -77,7 +79,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testDelimitFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('delimit', array('value' => 'fooBar')),
             'foo::bar'
         );
@@ -85,7 +87,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testHumanizeFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('humanize', array('value' => 'author_id')),
             'Author'
         );
@@ -93,7 +95,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testSlugifyFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('slugify', array('value' => 'Using strings like fòô bàř')),
             'using-strings-like-foo-bar'
         );
@@ -101,7 +103,7 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testTitleizeFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('titleize', array('value' => 'i like to watch television')),
             'I Like to Watch Television'
         );
@@ -109,15 +111,31 @@ class StringyExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testUnderscoredFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('underscored', array('value' => 'TestUCase')),
             'test_u_case'
         );
     }
 
+    public function testLcfirstFilter()
+    {
+        self::assertSame(
+            $this->twig->render('lcfirst', array('value' => 'LowerCaseFirst')),
+            'lowerCaseFirst'
+        );
+    }
+
+    public function testUcfirstFilter()
+    {
+        self::assertSame(
+            $this->twig->render('ucfirst', array('value' => 'upperCaseFirst')),
+            'UpperCaseFirst'
+        );
+    }
+
     public function testSwapCaseExtraFilter()
     {
-        $this->assertSame(
+        self::assertSame(
             $this->twig->render('swap_case', array('value' => 'SwapCase')),
             'sWAPcASE'
         );

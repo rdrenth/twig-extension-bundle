@@ -5,7 +5,7 @@ namespace Rdrenth\Bundle\TwigExtensionBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * RdrenthTwigExtensionBundle
+ * Class RdrenthTwigExtensionBundle
  *
  * @author   Ronald Drenth <ronalddrenth@gmail.com>
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)

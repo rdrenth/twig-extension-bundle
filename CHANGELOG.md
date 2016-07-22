@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0
+* Update code style
+* Update composer requirements
+* Fix broken link in README
+* Add filter `lcfirst`
+* Add filter `ucfirst`
+
 ## 1.0.3
 * Update minimal PHP requirement to 5.3.3
 * Update composer autoload settings

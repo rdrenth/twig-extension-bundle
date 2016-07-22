@@ -31,7 +31,7 @@ For more information about each filter, please check the links.
 {{ 'fooBar'|dasherize }} {# foo-bar #}
 ```
 
-#### [delimit](https://github.com/danielstjules/Stringy#delimit)
+#### [delimit](https://github.com/danielstjules/Stringy#delimitint-delimiter)
 
 ```twig
 {{ 'fooBar'|delimit('::') }} {# foo::bar #}
@@ -59,6 +59,18 @@ For more information about each filter, please check the links.
 
 ```twig
 {{ 'TestUCase'|underscored }} {# test_u_case #}
+```
+
+#### [lcfirst](https://github.com/danielstjules/Stringy#lowercasefirst)
+
+```twig
+{{ 'LowerCaseFirst'|lcfirst }} {# lowerCaseFirst #}
+```
+
+#### [ucfirst](https://github.com/danielstjules/Stringy#uppercasefirst)
+
+```twig
+{{ 'upperCaseFirst'|ucfirst }} {# UpperCaseFirst #}
 ```
 
 
