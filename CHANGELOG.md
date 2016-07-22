@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.0
 * Update code style
 * Update composer requirements
 * Fix broken link in README
